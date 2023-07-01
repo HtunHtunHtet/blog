@@ -1,18 +1,16 @@
-<!doctype html>
+@extends('layout')
 
-<title>My blog</title>
-<link rel="stylesheet" href="/app.css">
-<body>
+@section('content')
     @foreach ($posts as $post)
         <article class="{{ $loop->even ? 'margin-bottom': '' }}">
-           <h1>
-               <a href="/posts/{{ $post->slug }}">
-                   {{ $post->title }}
+            <h1>
+                <a href="/posts/{{ $post->slug }}">
+                    {{ $post->title }}
 
-               </a>
-           </h1>
+                </a>
+            </h1>
 
             <div>{{ $post->excerpt }}</div>
         </article>
     @endforeach
-</body>
+@endsection
