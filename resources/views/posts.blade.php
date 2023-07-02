@@ -3,7 +3,7 @@
         <article class="{{ $loop->even ? 'margin-bottom': '' }}">
             <h1>
                 <a href="/posts/{{ $post->id }}">
-                    {{ $post->title }}
+                    {!!  $post->title  !!}
                 </a>
             </h1>
 
