@@ -11,6 +11,12 @@ class Post extends Model
 
     protected $guarded = [];
 
+    public function category()
+    {
+        // hasOne, hasMany, belongsTo, belongsToMany
+        return $this->belongsTo(Category::class);
+    }
+
     //protected $fillable = ['title', 'excerpt', 'body'];
     //public function getRouteKeyName()
     //{
