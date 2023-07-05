@@ -7,23 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory; // Post:Factory() access
 
     protected $guarded = [];
+
+    //default include category and author
+    protected $with = ['category', 'author'];
 
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    public function user()
+    public function author()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
-
-    //protected $fillable = ['title', 'excerpt', 'body'];
-    //public function getRouteKeyName()
-    //{
-    //    return 'slug';
-    //}
 }
