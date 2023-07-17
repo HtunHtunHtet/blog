@@ -7,10 +7,12 @@
 
             @if($posts->count() > 1)
                 <x-posts-grid :posts="$posts"/>
-
             @endif
         @else
             <p class="text-center"> No post yet. Please check back later</p>
         @endif
+
+        {{ $posts->links() }}
+
     </main>
 </x-layout>
