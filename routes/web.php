@@ -21,4 +21,8 @@ Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
-Route::post('logout', [SessionController::class, 'destroy']);
+
+Route::get('login', [SessionController::class, 'create'])->middleware('guest'); // you can reach this endpoint without any authentication because of middle ware
+Route::post('sessions', [SessionController::class, 'store'])->middleware('guest');
+
+Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth'); // you have to be authenticate in order to reach this endpoint
