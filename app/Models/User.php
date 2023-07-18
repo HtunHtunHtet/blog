@@ -39,6 +39,31 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * This is eloquent mutator
+     * This must follow below naming convention
+     *
+     *
+     *  Any point if you set $user->password , below method will run
+     *  set{attribute-name}Attribute - See below for example
+     */
+    public function setPasswordAttribute($password)
+    {
+        $this->attributes['password'] = bcrypt($password);
+    }
+
+    /**
+     * This is eloquent accessor
+     * This must follow below naming convention
+     *
+     * Any pont if you set $user->getUsername, below  method will run
+     * get{attribute-name}Attribute - see below for example
+     */
+    public function getUsernameAttribute($username)
+    {
+        return ucwords($username);
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
