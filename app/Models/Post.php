@@ -9,8 +9,6 @@ class Post extends Model
 {
     use HasFactory; // Post:Factory() access
 
-    protected $guarded = [];
-
     //default include category and author
     protected $with = ['category', 'author'];
 
