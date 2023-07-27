@@ -18,6 +18,8 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $image = $this->faker->randomElement([rand(1, 5)]);
+
         return [
             'user_id' => User::factory(),
             'category_id' => Category::factory(),
@@ -25,6 +27,7 @@ class PostFactory extends Factory
             'slug' => fake()->slug,
             'excerpt' => '<p>'.implode('<p></p>', fake()->paragraphs(2)).'</p>',
             'body' => '<p>'.implode('<p></p>', fake()->paragraphs(6)).'</p>',
+            'thumbnail' => 'thumbnails/illustration-'.$image.'.png',
         ];
     }
 }
